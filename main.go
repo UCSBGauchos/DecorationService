@@ -1,7 +1,7 @@
 package main
 
 import (
-	_ "wwwin-github.cisco.com/DevNet/DecorationService/routers"
+	_ "github.com/UCSBGauchos/DecorationService/routers"
 	"github.com/astaxie/beego"
 )
 
