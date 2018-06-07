@@ -1,10 +1,12 @@
 package controllers
 
 import (
-	"github.com/astaxie/beego"
-	"github.com/UCSBGauchos/DecorationService/models"
 	"encoding/json"
 	"strconv"
+
+	"github.com/astaxie/beego"
+	"github.com/UCSBGauchos/DecorationService/models"
+	"fmt"
 )
 
 type TaskController struct {
@@ -33,6 +35,8 @@ func (this *TaskController) ListTasks() {
 //   res: 200
 func (this *TaskController) NewTask() {
 	req := struct{ Title string }{}
+	fmt.Println("input is")
+	fmt.Println(string(this.Ctx.Input.RequestBody))
 	if err := json.Unmarshal(this.Ctx.Input.RequestBody, &req); err != nil {
 		this.Ctx.Output.SetStatus(400)
 		this.Ctx.Output.Body([]byte("empty title"))
